@@ -1,0 +1,13 @@
+{
+  "name": "listify-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-powered product listing generator using open-weight models through OpenRouter.",
+  "scripts": {
+    "test": "node --check api/generate.js && node --check js/app.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
