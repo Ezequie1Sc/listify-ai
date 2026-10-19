@@ -4,25 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="theme-color" content="#f8f8fc" />
+  <meta name="theme-color" content="#efeeeb" />
   <meta
     name="description"
-    content="Listify AI turns product details into compelling listings using open-weight artificial intelligence."
+    content="Turn your product details into titles, descriptions and social content with Listify AI."
   />
 
-  <title>Listify AI — Make every product stand out</title>
+  <title>Listify AI — Good products. Better stories.</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
 
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet"
-  />
-
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
   />
 
   <link rel="stylesheet" href="./css/styles.css" />
@@ -30,102 +26,351 @@
 </head>
 
 <body>
-  <div class="site-shell">
+  <!-- Reusable SVG icons -->
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="svg-library"
+    aria-hidden="true"
+  >
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M4 12h16M13 5l7 7-7 7" />
+    </symbol>
 
-    <!-- NAVIGATION -->
+    <symbol id="icon-diagonal" viewBox="0 0 24 24">
+      <path d="M6 18 18 6M6 6h12v12" />
+    </symbol>
+
+    <symbol id="icon-spark" viewBox="0 0 24 24">
+      <path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z" />
+    </symbol>
+
+    <symbol id="icon-copy" viewBox="0 0 24 24">
+      <rect x="8" y="8" width="12" height="12" rx="2" />
+      <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
+    </symbol>
+
+    <symbol id="icon-refresh" viewBox="0 0 24 24">
+      <path d="M20 7v5h-5M4 17v-5h5" />
+      <path d="M6.1 7a7 7 0 0 1 11.5-1L20 9M4 15l2.4 3A7 7 0 0 0 18 17" />
+    </symbol>
+
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <path d="m5 12 4 4L19 6" />
+    </symbol>
+
+    <symbol id="icon-sliders" viewBox="0 0 24 24">
+      <path d="M4 7h6m4 0h6M4 17h10m4 0h2" />
+      <circle cx="12" cy="7" r="2" />
+      <circle cx="16" cy="17" r="2" />
+    </symbol>
+
+    <symbol id="icon-file" viewBox="0 0 24 24">
+      <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z" />
+      <path d="M14 3v6h6M8 13h8M8 17h5" />
+    </symbol>
+
+    <symbol id="icon-alert" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v6M12 17h.01" />
+    </symbol>
+
+    <symbol id="icon-bag" viewBox="0 0 24 24">
+      <path d="M5 7h14l1 14H4L5 7Z" />
+      <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+    </symbol>
+
+    <symbol id="icon-instagram" viewBox="0 0 24 24">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <path d="M17.5 6.5h.01" />
+    </symbol>
+
+    <symbol id="icon-grid" viewBox="0 0 24 24">
+      <rect x="3" y="3" width="7" height="7" rx="1" />
+      <rect x="14" y="3" width="7" height="7" rx="1" />
+      <rect x="3" y="14" width="7" height="7" rx="1" />
+      <rect x="14" y="14" width="7" height="7" rx="1" />
+    </symbol>
+
+    <symbol id="icon-globe" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" />
+      <ellipse cx="12" cy="12" rx="4" ry="9" />
+      <path d="M3 12h18" />
+    </symbol>
+  </svg>
+
+  <div class="site-shell">
+    <div class="announcement">
+      <span>GOOD PRODUCTS DESERVE GREAT WORDS.</span>
+      <a href="#generator">
+        MEET YOUR NEW WRITING PARTNER
+        <svg class="icon" aria-hidden="true">
+          <use href="#icon-diagonal" />
+        </svg>
+      </a>
+    </div>
+
     <header class="site-header" id="top">
       <nav class="navbar container" aria-label="Main navigation">
-        <a href="#top" class="brand" aria-label="Listify AI home">
-          <span class="brand-symbol">
-            <i class="fa-solid fa-wand-magic-sparkles"></i>
-          </span>
-          <span>listify<span class="brand-ai">.ai</span></span>
+        <a class="brand" href="#top" aria-label="Listify AI home">
+          listify<span class="brand-dot">.</span>
+          <span class="brand-tag">AI</span>
         </a>
 
         <div class="nav-links">
-          <a href="#features">Features</a>
+          <a href="#features">The possibilities</a>
           <a href="#how-it-works">How it works</a>
-          <a href="#generator">Generator</a>
+          <a href="#generator">The studio</a>
         </div>
 
-        <a href="#generator" class="nav-cta">
-          Try for free
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <a class="nav-cta" href="#generator">
+          Start creating
+          <svg class="icon" aria-hidden="true">
+            <use href="#icon-diagonal" />
+          </svg>
         </a>
       </nav>
     </header>
 
     <main>
-
       <!-- HERO -->
-      <section class="hero">
-        <div class="hero-glow" aria-hidden="true"></div>
-
-        <div class="container hero-content">
-          <div class="eyebrow reveal">
-            <span class="eyebrow-dot"></span>
-            YOUR AI-POWERED WRITING PARTNER
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container">
+          <div class="hero-topline">
+            <span class="eyebrow">
+              <span class="status-dot"></span>
+              A LITTLE INPUT. A LOT OF POSSIBILITIES.
+            </span>
+            <span class="edition">THE PRODUCT CONTENT STUDIO / 01</span>
           </div>
 
-          <h1 class="hero-title reveal">
-            Better listings.
-            <br />
-            <span class="gradient-text">Less effort.</span>
+          <h1 class="hero-title" id="hero-title">
+            GOOD PRODUCTS.<br />
+            <span>BETTER STORIES.</span>
           </h1>
 
-          <p class="hero-description reveal">
-            Turn simple product details into compelling descriptions,
-            catchy titles, and ready-to-share content.
-            Powered by open-weight AI.
-          </p>
+          <div class="hero-layout">
+            <div class="hero-copy">
+              <span class="mini-label">YOUR IDEAS. BEAUTIFULLY WRITTEN.</span>
 
-          <div class="hero-actions reveal">
-            <a href="#generator" class="btn btn-primary">
-              Generate your first listing
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
+              <p>
+                Turn what you sell into words that connect.
+                Product listings, social captions and fresh ideas —
+                all starting with a few simple details.
+              </p>
 
-            <a href="#how-it-works" class="btn btn-secondary">
-              See how it works
-              <i class="fa-solid fa-arrow-down"></i>
-            </a>
+              <a href="#generator" class="btn btn-primary">
+                Create your first listing
+                <svg class="icon" aria-hidden="true">
+                  <use href="#icon-arrow" />
+                </svg>
+              </a>
+
+              <a href="#how-it-works" class="text-link">
+                A simpler way to create
+                <svg class="icon" aria-hidden="true">
+                  <use href="#icon-diagonal" />
+                </svg>
+              </a>
+
+              <div class="hero-note">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#icon-check" />
+                </svg>
+                Your product. Your voice. Your next post.
+              </div>
+            </div>
+
+            <div class="hero-visual">
+              <div class="visual-header">
+                <span>FROM PRODUCT TO PUBLICATION</span>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#icon-spark" />
+                </svg>
+              </div>
+
+              <img
+                class="hero-product"
+                src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=1200&q=85"
+                alt="Reusable bottle photographed as a lifestyle product"
+                width="1200"
+                height="900"
+                fetchpriority="high"
+              />
+
+              <div class="image-caption">
+                <span>EVERYDAY OBJECTS.<br />EXTRAORDINARY STORIES.</span>
+                <span>01 / PRODUCT SPOTLIGHT</span>
+              </div>
+
+              <div class="floating-preview">
+                <div class="preview-top">
+                  <span class="preview-mark">
+                    <svg class="icon" aria-hidden="true">
+                      <use href="#icon-spark" />
+                    </svg>
+                  </span>
+
+                  <div>
+                    <strong>A fresh perspective.</strong>
+                    <span>EXAMPLE PRODUCT COPY</span>
+                  </div>
+
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-diagonal" />
+                  </svg>
+                </div>
+
+                <p>Your everyday companion, wherever the day takes you.</p>
+
+                <div class="preview-tags">
+                  <span>#EverydayEssentials</span>
+                  <span>#YourNextAdventure</span>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div class="hero-note reveal">
-            <i class="fa-solid fa-circle-check"></i>
-            No account required. Just create.
-          </div>
-        </div>
-
-        <div class="floating-element floating-one" aria-hidden="true">
-          <i class="fa-solid fa-sparkles"></i>
-        </div>
-
-        <div class="floating-element floating-two" aria-hidden="true">
-          <i class="fa-solid fa-bolt"></i>
         </div>
       </section>
 
-      <!-- TRUST STRIP -->
-      <section class="trust-strip">
-        <div class="container trust-content">
-          <span>MADE FOR CREATORS AND SELLERS</span>
+      <!-- PLATFORM STRIP -->
+      <section class="platform-strip" aria-label="Content destinations">
+        <div class="container platform-inner">
+          <p>ONE PRODUCT.<br /><strong>MORE WAYS TO SHARE.</strong></p>
 
-          <div class="trust-items">
-            <span>
-              <i class="fa-solid fa-store"></i>
-              Small businesses
-            </span>
+          <span>
+            <svg class="icon" aria-hidden="true">
+              <use href="#icon-grid" />
+            </svg>
+            Facebook Marketplace
+          </span>
 
-            <span>
-              <i class="fa-solid fa-bag-shopping"></i>
-              Online sellers
-            </span>
+          <span>
+            <svg class="icon" aria-hidden="true">
+              <use href="#icon-instagram" />
+            </svg>
+            Instagram
+          </span>
 
-            <span>
-              <i class="fa-solid fa-briefcase"></i>
-              Freelancers
-            </span>
+          <span>
+            <svg class="icon" aria-hidden="true">
+              <use href="#icon-bag" />
+            </svg>
+            Online stores
+          </span>
+
+          <span>
+            <svg class="icon" aria-hidden="true">
+              <use href="#icon-globe" />
+            </svg>
+            Your next idea
+          </span>
+        </div>
+      </section>
+
+      <!-- PRODUCT GALLERY -->
+      <section class="section-padding collection-section" id="features">
+        <div class="container">
+          <div class="section-heading heading-split">
+            <div>
+              <span class="section-label">01 / THE POSSIBILITIES</span>
+              <h2>Whatever you make.<br /><span>Make it stand out.</span></h2>
+            </div>
+
+            <p>
+              From the first collection to the everyday bestseller.
+              Find the right words for what makes your products yours.
+            </p>
+          </div>
+
+          <div class="collection-grid">
+            <a href="#generator" class="collection-card">
+              <div class="collection-image">
+                <img
+                  src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=85"
+                  alt="Red athletic sneaker on a red background"
+                  width="800"
+                  height="1000"
+                  loading="lazy"
+                />
+                <span class="image-index">01</span>
+                <span class="image-action">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-diagonal" />
+                  </svg>
+                </span>
+              </div>
+
+              <div class="collection-info">
+                <div>
+                  <h3>Style with a story.</h3>
+                  <p>FASHION & ACCESSORIES</p>
+                </div>
+                <span>Explore</span>
+              </div>
+            </a>
+
+            <a href="#generator" class="collection-card">
+              <div class="collection-image">
+                <img
+                  src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=85"
+                  alt="Beauty and personal care products"
+                  width="800"
+                  height="1000"
+                  loading="lazy"
+                />
+                <span class="image-index">02</span>
+                <span class="image-action">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-diagonal" />
+                  </svg>
+                </span>
+              </div>
+
+              <div class="collection-info">
+                <div>
+                  <h3>A little everyday luxury.</h3>
+                  <p>BEAUTY & PERSONAL CARE</p>
+                </div>
+                <span>Explore</span>
+              </div>
+            </a>
+
+            <a href="#generator" class="collection-card">
+              <div class="collection-image">
+                <img
+                  src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=85"
+                  alt="Minimal chair in a bright interior"
+                  width="800"
+                  height="1000"
+                  loading="lazy"
+                />
+                <span class="image-index">03</span>
+                <span class="image-action">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-diagonal" />
+                  </svg>
+                </span>
+              </div>
+
+              <div class="collection-info">
+                <div>
+                  <h3>Objects worth talking about.</h3>
+                  <p>HOME & LIVING</p>
+                </div>
+                <span>Explore</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="collection-footnote">
+            <span>Small businesses. Independent makers. Big ideas.</span>
+            <a href="#generator" class="text-link">
+              Find your words
+              <svg class="icon" aria-hidden="true">
+                <use href="#icon-arrow" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
@@ -133,60 +378,47 @@
       <!-- GENERATOR -->
       <section class="generator-section section-padding" id="generator">
         <div class="container">
-
-          <div class="section-heading reveal">
-            <span class="section-label">
-              <i class="fa-solid fa-sparkles"></i>
-              THE GENERATOR
-            </span>
-
-            <h2>
-              Your next great listing
-              <span class="gradient-text">starts here.</span>
-            </h2>
-
+          <div class="section-heading heading-split">
+            <div>
+              <span class="section-label">02 / YOUR CREATIVE SPACE</span>
+              <h2>Less blank page.<br /><span>More possibility.</span></h2>
+            </div>
             <p>
-              Tell us about your product. Let AI handle the words.
+              Bring the product. We’ll help with the words.
+              Give your next listing a place to begin.
             </p>
           </div>
 
-          <div class="workspace reveal">
-
-            <!-- FORM -->
+          <div class="workspace">
             <div class="workspace-form">
               <div class="panel-header">
                 <div class="panel-icon">
-                  <i class="fa-solid fa-sliders"></i>
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-sliders" />
+                  </svg>
                 </div>
-
                 <div>
-                  <h3>Product details</h3>
-                  <p>Give your product a little context.</p>
+                  <h3>The starting point</h3>
+                  <p>A few details make all the difference.</p>
                 </div>
+                <span class="panel-number">01</span>
               </div>
 
               <form id="listingForm">
-
                 <div class="form-group">
-                  <label for="productName">
-                    Product name <span>*</span>
-                  </label>
-
+                  <label for="productName">Product name <span>*</span></label>
                   <input
-                    type="text"
                     id="productName"
                     name="productName"
-                    placeholder="e.g. Wireless Bluetooth Headphones"
+                    type="text"
+                    placeholder="e.g. Everyday stainless steel bottle"
                     maxlength="120"
                     required
                   />
                 </div>
 
                 <div class="form-group">
-                  <label for="category">
-                    Category
-                  </label>
-
+                  <label for="category">Category</label>
                   <select id="category" name="category">
                     <option value="General">Select a category</option>
                     <option value="Electronics">Electronics</option>
@@ -202,84 +434,64 @@
 
                 <div class="form-group">
                   <label for="productDetails">
-                    Key features <span>*</span>
+                    What makes it special? <span>*</span>
                   </label>
-
                   <textarea
                     id="productDetails"
                     name="productDetails"
-                    rows="5"
+                    rows="4"
                     maxlength="1200"
-                    placeholder="Describe the product, materials, colors, benefits, or anything that makes it special..."
+                    placeholder="Materials, colors, features, benefits... Tell us the details your customers will love."
                     required
                   ></textarea>
-
                   <div class="field-footer">
-                    <span>More details, better results.</span>
+                    <span>The details are where the story starts.</span>
                     <span id="charCount">0 / 1200</span>
                   </div>
                 </div>
 
                 <div class="form-row">
                   <div class="form-group">
-                    <label for="productPrice">
-                      Price (optional)
-                    </label>
-
+                    <label for="productPrice">Price <small>(optional)</small></label>
                     <input
-                      type="text"
                       id="productPrice"
                       name="productPrice"
+                      type="text"
                       maxlength="40"
                       placeholder="e.g. $499 MXN"
                     />
                   </div>
 
                   <div class="form-group">
-                    <label for="platform">
-                      Platform
-                    </label>
-
+                    <label for="platform">Where will it go?</label>
                     <select id="platform" name="platform">
-                      <option value="Facebook Marketplace">
-                        Facebook Marketplace
-                      </option>
-                      <option value="Instagram">
-                        Instagram
-                      </option>
-                      <option value="Online Store">
-                        Online Store
-                      </option>
-                      <option value="General">
-                        General
-                      </option>
+                      <option value="Facebook Marketplace">Facebook Marketplace</option>
+                      <option value="Instagram">Instagram</option>
+                      <option value="Online Store">Online Store</option>
+                      <option value="General">General</option>
                     </select>
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="tone">
-                    Writing tone
-                  </label>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="tone">Your tone</label>
+                    <select id="tone" name="tone">
+                      <option value="Professional">Professional</option>
+                      <option value="Friendly">Friendly</option>
+                      <option value="Persuasive">Persuasive</option>
+                      <option value="Creative">Creative</option>
+                      <option value="Minimalist">Minimalist</option>
+                    </select>
+                  </div>
 
-                  <select id="tone" name="tone">
-                    <option value="Professional">Professional</option>
-                    <option value="Friendly">Friendly</option>
-                    <option value="Persuasive">Persuasive</option>
-                    <option value="Creative">Creative</option>
-                    <option value="Minimalist">Minimalist</option>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label for="language">
-                    Output language
-                  </label>
-
-                  <select id="language" name="language">
-                    <option value="English">English</option>
-                    <option value="Spanish">Spanish</option>
-                  </select>
+                  <div class="form-group">
+                    <label for="language">Output language</label>
+                    <select id="language" name="language">
+                      <option value="English">English</option>
+                      <option value="Spanish">Spanish</option>
+                    </select>
+                  </div>
                 </div>
 
                 <button
@@ -287,56 +499,76 @@
                   class="btn btn-primary generate-button"
                   id="generateBtn"
                 >
-                  <i class="fa-solid fa-wand-magic-sparkles"></i>
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-spark" />
+                  </svg>
                   <span>Generate listing</span>
-                  <i class="fa-solid fa-arrow-right"></i>
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#icon-arrow" />
+                  </svg>
                 </button>
 
                 <p class="form-disclaimer">
-                  Powered by open-weight AI through OpenRouter.
-                  Review generated content before publishing.
+                  AI helps with the first draft. You make it yours.
+                  Review your content before publishing.
                 </p>
-
               </form>
             </div>
 
-            <!-- RESULTS -->
             <div class="workspace-results">
-
               <div class="results-header">
                 <div class="results-title">
-                  <div class="panel-icon result-icon">
-                    <i class="fa-solid fa-file-lines"></i>
+                  <div class="panel-icon">
+                    <svg class="icon" aria-hidden="true">
+                      <use href="#icon-file" />
+                    </svg>
                   </div>
-
                   <div>
-                    <h3>Your listing</h3>
-                    <p>AI-generated content appears here.</p>
+                    <h3>Your next great listing</h3>
+                    <p>A new perspective on your product.</p>
                   </div>
                 </div>
 
                 <span class="result-status" id="resultStatus">
-                  <span></span>
-                  Ready
+                  <span></span> Ready
                 </span>
               </div>
 
-              <!-- EMPTY -->
               <div class="result-empty" id="emptyState">
-                <div class="empty-illustration">
-                  <div class="empty-orbit orbit-one"></div>
-                  <div class="empty-orbit orbit-two"></div>
+                <div class="empty-art" aria-hidden="true">
+                  <div class="paper paper-back"></div>
+                  <div class="paper paper-front">
+                    <div class="paper-top">
+                      <span>YOUR NEXT BIG IDEA</span>
+                      <svg class="icon">
+                        <use href="#icon-spark" />
+                      </svg>
+                    </div>
 
-                  <div class="empty-center">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <img
+                      src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=500&q=80"
+                      alt=""
+                      width="500"
+                      height="350"
+                      loading="lazy"
+                    />
+
+                    <span class="paper-line long"></span>
+                    <span class="paper-line"></span>
+
+                    <div class="paper-bottom">
+                      <span>MADE TO STAND OUT.</span>
+                      <svg class="icon">
+                        <use href="#icon-diagonal" />
+                      </svg>
+                    </div>
                   </div>
                 </div>
 
-                <h4>Something great is coming.</h4>
-
+                <h4>Good words start here.</h4>
                 <p>
-                  Fill in your product details and watch
-                  your next listing come to life.
+                  Add your product details and turn a simple
+                  idea into your next ready-to-share listing.
                 </p>
 
                 <div class="empty-chips">
@@ -346,272 +578,234 @@
                 </div>
               </div>
 
-              <!-- LOADING -->
               <div class="loading-state hidden" id="loadingState" role="status">
                 <div class="loading-spinner"></div>
-                <h4>Creating your listing...</h4>
-                <p>Our AI is finding the right words.</p>
+                <h4>Finding your words...</h4>
+                <p>Your product’s next chapter is taking shape.</p>
               </div>
 
-              <!-- ERROR -->
               <div class="error-state hidden" id="errorState" role="alert">
-                <i class="fa-solid fa-circle-exclamation"></i>
-                <h4>Something went wrong</h4>
+                <svg class="icon error-icon" aria-hidden="true">
+                  <use href="#icon-alert" />
+                </svg>
+                <h4>Let’s try that again.</h4>
                 <p id="errorMessage"></p>
               </div>
 
-              <!-- GENERATED CONTENT -->
               <div class="generated-content hidden" id="generatedContent">
-
                 <div class="output-group">
                   <div class="output-label">
-                    <span>
-                      <i class="fa-solid fa-heading"></i>
-                      PRODUCT TITLE
-                    </span>
-
+                    <span>01 / PRODUCT TITLE</span>
                     <button type="button" class="copy-button" data-copy="generatedTitle">
-                      <i class="fa-regular fa-copy"></i>
+                      <svg class="icon" aria-hidden="true">
+                        <use href="#icon-copy" />
+                      </svg>
                       Copy
                     </button>
                   </div>
-
                   <h4 id="generatedTitle"></h4>
                 </div>
 
                 <div class="output-group">
                   <div class="output-label">
-                    <span>
-                      <i class="fa-solid fa-align-left"></i>
-                      DESCRIPTION
-                    </span>
-
+                    <span>02 / DESCRIPTION</span>
                     <button type="button" class="copy-button" data-copy="generatedDescription">
-                      <i class="fa-regular fa-copy"></i>
+                      <svg class="icon" aria-hidden="true">
+                        <use href="#icon-copy" />
+                      </svg>
                       Copy
                     </button>
                   </div>
-
                   <p id="generatedDescription"></p>
                 </div>
 
                 <div class="output-group">
                   <div class="output-label">
-                    <span>
-                      <i class="fa-solid fa-hashtag"></i>
-                      HASHTAGS
-                    </span>
-
+                    <span>03 / HASHTAGS</span>
                     <button type="button" class="copy-button" data-copy="generatedHashtags">
-                      <i class="fa-regular fa-copy"></i>
+                      <svg class="icon" aria-hidden="true">
+                        <use href="#icon-copy" />
+                      </svg>
                       Copy
                     </button>
                   </div>
-
                   <div class="hashtags-output" id="generatedHashtags"></div>
                 </div>
 
                 <div class="output-group">
                   <div class="output-label">
-                    <span>
-                      <i class="fa-solid fa-bullhorn"></i>
-                      CALL TO ACTION
-                    </span>
-
+                    <span>04 / CALL TO ACTION</span>
                     <button type="button" class="copy-button" data-copy="generatedCTA">
-                      <i class="fa-regular fa-copy"></i>
+                      <svg class="icon" aria-hidden="true">
+                        <use href="#icon-copy" />
+                      </svg>
                       Copy
                     </button>
                   </div>
-
                   <p id="generatedCTA"></p>
                 </div>
 
                 <div class="result-actions">
                   <button type="button" class="btn btn-primary" id="copyAllBtn">
-                    <i class="fa-regular fa-copy"></i>
+                    <svg class="icon" aria-hidden="true">
+                      <use href="#icon-copy" />
+                    </svg>
                     Copy everything
                   </button>
 
                   <button type="button" class="btn btn-secondary" id="regenerateBtn">
-                    <i class="fa-solid fa-rotate"></i>
+                    <svg class="icon" aria-hidden="true">
+                      <use href="#icon-refresh" />
+                    </svg>
                     Regenerate
                   </button>
                 </div>
-
               </div>
 
+              <div class="results-footnote">
+                <span>CRAFTED WITH AI. FINISHED BY YOU.</span>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#icon-spark" />
+                </svg>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- FEATURES -->
-      <section class="features-section section-padding" id="features">
-        <div class="container">
+      <!-- EDITORIAL FEATURE -->
+      <section class="editorial-section">
+        <div class="editorial-photo">
+          <img
+            src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1400&q=85"
+            alt="Clothing and accessories arranged for a fashion collection"
+            width="1400"
+            height="1100"
+            loading="lazy"
+          />
+          <span class="photo-label">A NEW WAY TO TELL YOUR STORY.</span>
+        </div>
 
-          <div class="section-heading reveal">
-            <span class="section-label">WHY LISTIFY</span>
-
-            <h2>
-              Less writing.
-              <br />
-              <span class="gradient-text">More creating.</span>
-            </h2>
-
-            <p>
-              Everything you need to turn your products
-              into content worth sharing.
-            </p>
-          </div>
-
-          <div class="features-grid">
-
-            <article class="feature-card reveal">
-              <div class="feature-icon purple">
-                <i class="fa-solid fa-bolt"></i>
-              </div>
-
-              <h3>Save your time</h3>
-
-              <p>
-                Skip the blank page. Create compelling
-                product content in seconds.
-              </p>
-            </article>
-
-            <article class="feature-card reveal">
-              <div class="feature-icon pink">
-                <i class="fa-solid fa-pen-nib"></i>
-              </div>
-
-              <h3>Find your voice</h3>
-
-              <p>
-                Choose a writing style that matches
-                your product and your audience.
-              </p>
-            </article>
-
-            <article class="feature-card reveal">
-              <div class="feature-icon blue">
-                <i class="fa-solid fa-share-nodes"></i>
-              </div>
-
-              <h3>Ready to share</h3>
-
-              <p>
-                Get tailored content for marketplaces,
-                social media, and online stores.
-              </p>
-            </article>
-
-          </div>
+        <div class="editorial-copy">
+          <span class="section-label">LESS OVERTHINKING. MORE CREATING.</span>
+          <h2>You make<br />the product.<br /><span>Make some noise.</span></h2>
+          <p>
+            That handmade detail. That carefully chosen material.
+            That idea you couldn’t stop thinking about.
+            Give it the introduction it deserves.
+          </p>
+          <a href="#generator" class="btn btn-primary">
+            Put it into words
+            <svg class="icon" aria-hidden="true">
+              <use href="#icon-diagonal" />
+            </svg>
+          </a>
         </div>
       </section>
 
-      <!-- HOW IT WORKS -->
+      <!-- PROCESS -->
       <section class="how-section section-padding" id="how-it-works">
         <div class="container">
-
-          <div class="section-heading reveal">
-            <span class="section-label">SIMPLE BY DESIGN</span>
-
-            <h2>
-              Three steps.
-              <span class="gradient-text">That's it.</span>
-            </h2>
+          <div class="section-heading heading-split">
+            <div>
+              <span class="section-label">03 / KEEP IT SIMPLE</span>
+              <h2>A good listing.<br /><span>In three moves.</span></h2>
+            </div>
+            <p>
+              No complicated workflow.
+              Just a little context and room for a fresh idea.
+            </p>
           </div>
 
           <div class="steps-grid">
-
-            <div class="step-card reveal">
-              <span class="step-number">01</span>
-              <h3>Describe your product</h3>
+            <article class="step-card">
+              <div class="step-top">
+                <span class="step-number">01</span>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#icon-bag" />
+                </svg>
+              </div>
+              <h3>Bring your product.</h3>
               <p>
-                Add the name, features, and details
-                that make your product unique.
+                Add its name, features and the little things
+                that make it different.
               </p>
-            </div>
+            </article>
 
-            <div class="step-card reveal">
-              <span class="step-number">02</span>
-              <h3>Choose your style</h3>
+            <article class="step-card">
+              <div class="step-top">
+                <span class="step-number">02</span>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#icon-sliders" />
+                </svg>
+              </div>
+              <h3>Set the direction.</h3>
               <p>
-                Select your preferred tone,
-                language, and selling platform.
+                Choose the platform, language and tone
+                that feel right for your business.
               </p>
-            </div>
+            </article>
 
-            <div class="step-card reveal">
-              <span class="step-number">03</span>
-              <h3>Generate and share</h3>
+            <article class="step-card">
+              <div class="step-top">
+                <span class="step-number">03</span>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#icon-diagonal" />
+                </svg>
+              </div>
+              <h3>Make it your own.</h3>
               <p>
-                Let open-weight AI write your listing,
-                then copy it wherever you need.
+                Generate your copy, review the details,
+                then share it wherever you sell.
               </p>
-            </div>
-
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- CTA -->
-      <section class="final-cta section-padding">
-        <div class="container">
-          <div class="cta-card reveal">
-
-            <div class="cta-decoration" aria-hidden="true"></div>
-
-            <span class="section-label">READY WHEN YOU ARE</span>
-
-            <h2>
-              Your products deserve
-              <br />
-              better words.
-            </h2>
-
-            <p>
-              Create your next listing with the help
-              of open-weight artificial intelligence.
-            </p>
-
-            <a href="#generator" class="btn btn-light">
-              Start creating
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
+      <section class="final-cta">
+        <div class="container cta-inner">
+          <div>
+            <span class="section-label">YOUR NEXT CHAPTER STARTS HERE.</span>
+            <h2>Let’s make<br /><span>something click.</span></h2>
           </div>
+
+          <a href="#generator" class="cta-circle" aria-label="Start creating your listing">
+            <svg class="icon" aria-hidden="true">
+              <use href="#icon-diagonal" />
+            </svg>
+          </a>
         </div>
       </section>
-
     </main>
 
-    <!-- FOOTER -->
     <footer class="site-footer">
-      <div class="container footer-content">
-
-        <a href="#top" class="brand">
-          <span class="brand-symbol">
-            <i class="fa-solid fa-wand-magic-sparkles"></i>
-          </span>
-          <span>listify<span class="brand-ai">.ai</span></span>
-        </a>
-
-        <p>
-          Made for ideas worth sharing.
-          Powered by open-weight AI.
-        </p>
-
-        <span>© <span id="currentYear"></span> Listify AI</span>
-
+      <div class="container">
+        <div class="footer-top">
+          <a href="#top" class="brand" aria-label="Listify AI home">
+            listify<span class="brand-dot">.</span>
+            <span class="brand-tag">AI</span>
+          </a>
+          <p>For the things you make.<br />And the stories they deserve.</p>
+          <a href="#top" class="text-link">
+            Back to top
+            <svg class="icon" aria-hidden="true">
+              <use href="#icon-diagonal" />
+            </svg>
+          </a>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span id="currentYear">2026</span> Listify AI</span>
+          <span>GOOD PRODUCTS. BETTER STORIES.</span>
+        </div>
       </div>
     </footer>
-
   </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite">
-    <i class="fa-solid fa-check"></i>
+    <svg class="icon" aria-hidden="true">
+      <use href="#icon-check" />
+    </svg>
     <span id="toastMessage">Copied to clipboard!</span>
   </div>
 </body>
