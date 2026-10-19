@@ -1,7 +1,7 @@
 "use strict";
 
 /* =========================================
-   LISTIFY AI — FRONTEND
+   LISTIFY AI — APPLICATION
 ========================================= */
 
 (() => {
@@ -42,34 +42,14 @@
   ========================================= */
 
   function initializeApp() {
-    form = document.getElementById("listingForm");
-    generateBtn = document.getElementById("generateBtn");
-    regenerateBtn = document.getElementById("regenerateBtn");
-    copyAllBtn = document.getElementById("copyAllBtn");
+    initializeNavigation();
+    initializeProductCarousel();
 
-    productName = document.getElementById("productName");
-    productDetails = document.getElementById("productDetails");
-    charCount = document.getElementById("charCount");
+    const currentYear = document.getElementById("currentYear");
 
-    emptyState = document.getElementById("emptyState");
-    loadingState = document.getElementById("loadingState");
-    errorState = document.getElementById("errorState");
-    generatedContent = document.getElementById("generatedContent");
-
-    resultStatus = document.getElementById("resultStatus");
-    errorMessage = document.getElementById("errorMessage");
-
-    generatedTitle = document.getElementById("generatedTitle");
-    generatedDescription = document.getElementById(
-      "generatedDescription"
-    );
-    generatedHashtags = document.getElementById(
-      "generatedHashtags"
-    );
-    generatedCTA = document.getElementById("generatedCTA");
-
-    toast = document.getElementById("toast");
-    toastMessage = document.getElementById("toastMessage");
+    if (currentYear) {
+      currentYear.textContent = new Date().getFullYear();
+    }
 
     const requiredIds = [
       "listingForm",
@@ -110,64 +90,42 @@
       return;
     }
 
-    initializeAnimations();
+    form = document.getElementById("listingForm");
+    generateBtn = document.getElementById("generateBtn");
+    regenerateBtn = document.getElementById("regenerateBtn");
+    copyAllBtn = document.getElementById("copyAllBtn");
+
+    productName = document.getElementById("productName");
+    productDetails = document.getElementById("productDetails");
+    charCount = document.getElementById("charCount");
+
+    emptyState = document.getElementById("emptyState");
+    loadingState = document.getElementById("loadingState");
+    errorState = document.getElementById("errorState");
+    generatedContent = document.getElementById(
+      "generatedContent"
+    );
+
+    resultStatus = document.getElementById("resultStatus");
+    errorMessage = document.getElementById("errorMessage");
+
+    generatedTitle = document.getElementById("generatedTitle");
+    generatedDescription = document.getElementById(
+      "generatedDescription"
+    );
+    generatedHashtags = document.getElementById(
+      "generatedHashtags"
+    );
+    generatedCTA = document.getElementById("generatedCTA");
+
+    toast = document.getElementById("toast");
+    toastMessage = document.getElementById("toastMessage");
+
     initializeForm();
     initializeCopyButtons();
-    initializeNavigation();
-
-    const currentYear = document.getElementById("currentYear");
-
-    if (currentYear) {
-      currentYear.textContent = new Date().getFullYear();
-    }
-
-    resultStatus.setAttribute("role", "status");
-    resultStatus.setAttribute("aria-live", "polite");
 
     updateCharacterCount();
     setLoading(false);
-  }
-
-  /* =========================================
-     SCROLL ANIMATIONS
-     Applies to elements with class "reveal".
-  ========================================= */
-
-  function initializeAnimations() {
-    const elements = document.querySelectorAll(".reveal");
-
-    if (!elements.length) return;
-
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (!("IntersectionObserver" in window) || reduceMotion) {
-      elements.forEach(element => {
-        element.classList.add("visible");
-      });
-
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -30px 0px"
-      }
-    );
-
-    elements.forEach(element => {
-      observer.observe(element);
-    });
   }
 
   /* =========================================
@@ -231,12 +189,11 @@
   }
 
   /* =========================================
-     API REQUEST
+     GENERATION REQUEST
   ========================================= */
 
   async function generateListing() {
     if (isGenerating) return;
-
     if (!form.reportValidity()) return;
 
     const data = getFormData();
@@ -294,7 +251,7 @@
       currentListing = listing;
 
       setStatus("Completed", "ready");
-      showToast("Your listing is ready!");
+      showToast("Your publication is ready!");
     } catch (error) {
       console.error("Generation failed:", error);
 
@@ -330,10 +287,18 @@
       return result.error.message;
     }
 
-    return `Unable to generate your listing (HTTP ${status}).`;
+    return `Unable to generate your publication (HTTP ${status}).`;
   }
 
   function normalizeListing(listing) {
+    if (
+      !listing ||
+      typeof listing !== "object" ||
+      Array.isArray(listing)
+    ) {
+      throw new Error("The AI returned an invalid publication.");
+    }
+
     const requiredTextFields = [
       "title",
       "description",
@@ -355,7 +320,7 @@
 
     if (!hasValidText || !hasValidHashtags) {
       throw new Error(
-        "The AI returned an unexpected format. Please generate the listing again."
+        "The AI returned an unexpected format. Please generate the publication again."
       );
     }
 
@@ -380,7 +345,10 @@
     regenerateBtn.disabled = loading;
     copyAllBtn.disabled = loading;
 
-    generateBtn.setAttribute("aria-busy", String(loading));
+    generateBtn.setAttribute(
+      "aria-busy",
+      String(loading)
+    );
 
     if (loading) {
       emptyState.classList.add("hidden");
@@ -392,10 +360,9 @@
 
       generateBtn.innerHTML = `
         <svg
-          class="icon"
+          class="icon button-spinner"
           viewBox="0 0 24 24"
           aria-hidden="true"
-          style="animation: spin 0.9s linear infinite"
         >
           <circle
             cx="12"
@@ -414,7 +381,7 @@
         <svg class="icon" aria-hidden="true">
           <use href="#icon-spark"></use>
         </svg>
-        <span>Generate listing</span>
+        <span>Generate publication</span>
         <svg class="icon" aria-hidden="true">
           <use href="#icon-arrow"></use>
         </svg>
@@ -454,7 +421,7 @@
   }
 
   /* =========================================
-     RENDER GENERATED CONTENT
+     RENDER PUBLICATION
   ========================================= */
 
   function renderListing(listing) {
@@ -480,7 +447,7 @@
   }
 
   /* =========================================
-     COPY FUNCTIONALITY
+     COPY
   ========================================= */
 
   function initializeCopyButtons() {
@@ -531,7 +498,7 @@
 
       try {
         await copyText(text);
-        showToast("Complete listing copied!");
+        showToast("Complete publication copied!");
       } catch {
         showToast(
           "Could not copy. Check clipboard permissions or select the text manually."
@@ -566,43 +533,170 @@
   }
 
   /* =========================================
-     NAVIGATION
+     ANCHOR NAVIGATION
+     Delegation also supports carousel copies.
   ========================================= */
 
   function initializeNavigation() {
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener("click", event => {
-        if (
-          event.defaultPrevented ||
-          event.button !== 0 ||
-          event.ctrlKey ||
-          event.metaKey ||
-          event.shiftKey ||
-          event.altKey
-        ) {
-          return;
-        }
+    document.addEventListener("click", event => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.ctrlKey ||
+        event.metaKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
 
-        const href = link.getAttribute("href");
+      if (!(event.target instanceof Element)) return;
 
-        if (!href || href === "#") return;
+      const link = event.target.closest('a[href^="#"]');
 
-        const target = document.getElementById(href.slice(1));
+      if (!link) return;
 
-        if (!target) return;
+      const href = link.getAttribute("href");
 
-        event.preventDefault();
+      if (!href || href === "#") return;
 
-        const reduceMotion = window.matchMedia(
-          "(prefers-reduced-motion: reduce)"
-        ).matches;
+      const target = document.getElementById(href.slice(1));
 
-        target.scrollIntoView({
-          behavior: reduceMotion ? "auto" : "smooth",
-          block: "start"
-        });
+      if (!target) return;
+
+      event.preventDefault();
+
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      target.scrollIntoView({
+        behavior: reduceMotion ? "auto" : "smooth",
+        block: "start"
       });
     });
+  }
+
+  /* =========================================
+     ANIMATED PRODUCT CAROUSEL
+  ========================================= */
+
+  function initializeProductCarousel() {
+    const carousel = document.getElementById(
+      "productCarousel"
+    );
+
+    const toggle = document.getElementById(
+      "productCarouselToggle"
+    );
+
+    if (!carousel || !toggle) return;
+
+    const track = carousel.querySelector(
+      ".product-marquee-track"
+    );
+
+    const originalGroup = carousel.querySelector(
+      ".product-marquee-group"
+    );
+
+    if (!track || !originalGroup) return;
+
+    if (carousel.dataset.initialized === "true") return;
+
+    carousel.dataset.initialized = "true";
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+
+    let isPaused = false;
+    let clone = null;
+
+    function updateButton() {
+      const iconName = isPaused
+        ? "icon-play"
+        : "icon-pause";
+
+      const label = isPaused ? "Play" : "Pause";
+
+      toggle.setAttribute(
+        "aria-label",
+        isPaused
+          ? "Resume automatic product scrolling"
+          : "Pause automatic product scrolling"
+      );
+
+      toggle.innerHTML = `
+        <svg class="icon" aria-hidden="true">
+          <use href="#${iconName}"></use>
+        </svg>
+        <span>${label}</span>
+      `;
+    }
+
+    function applyMotionPreference() {
+      if (reducedMotion.matches) {
+        carousel.classList.remove("is-animated");
+        toggle.hidden = true;
+
+        if (clone) {
+          clone.remove();
+          clone = null;
+        }
+
+        return;
+      }
+
+      if (!clone) {
+        clone = originalGroup.cloneNode(true);
+
+        clone.classList.add("product-marquee-clone");
+        clone.setAttribute("aria-hidden", "true");
+
+        /*
+         * Duplicates are excluded from keyboard navigation.
+         * The original list remains available to screen readers.
+         */
+        clone.querySelectorAll("a").forEach(link => {
+          link.setAttribute("tabindex", "-1");
+        });
+
+        track.appendChild(clone);
+      }
+
+      carousel.scrollLeft = 0;
+      carousel.classList.add("is-animated");
+      carousel.classList.toggle("is-paused", isPaused);
+
+      toggle.hidden = false;
+      updateButton();
+    }
+
+    toggle.addEventListener("click", () => {
+      isPaused = !isPaused;
+
+      carousel.classList.toggle("is-paused", isPaused);
+      updateButton();
+    });
+
+    carousel.addEventListener("focusout", () => {
+      requestAnimationFrame(() => {
+        if (
+          !carousel.contains(document.activeElement) &&
+          !reducedMotion.matches
+        ) {
+          carousel.scrollLeft = 0;
+        }
+      });
+    });
+
+    reducedMotion.addEventListener(
+      "change",
+      applyMotionPreference
+    );
+
+    applyMotionPreference();
   }
 
   /* =========================================
